@@ -1,7 +1,7 @@
 <div align="center">
 
 # 🎵 Vibe Music
-### Open-source cloud music player with bring-your-own music, local control, sync, and no platform lock-in.
+#### Open-source cloud music player with bring-your-own music, local control, sync, and no platform lock-in.
 
 [![PWA Ready](https://img.shields.io/badge/PWA-Ready-blue?style=for-the-badge)](https://web.vibemusic.fm)
 [![React 19](https://img.shields.io/badge/React-19-61dafb?style=for-the-badge)](https://react.dev)
