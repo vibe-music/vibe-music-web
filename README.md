@@ -9,7 +9,7 @@
 
 <br />
 
-![Vibe Music Hero](https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=2070&auto=format&fit=crop)
+![Vibe Music Hero](examples/image.png)
 *Experience the vibe at **[web.vibemusic.fm](https://web.vibemusic.fm)***
 
 <br />
