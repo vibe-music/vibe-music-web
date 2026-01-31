@@ -3,12 +3,14 @@
 # 🎵 Vibe Music
 ### The high-fidelity, open-source music explorer for the nomadic web.
 
-[![PWA Ready](https://img.shields.io/badge/PWA-Ready-blue?style=for-the-badge)](https://vibe.music)
+[![PWA Ready](https://img.shields.io/badge/PWA-Ready-blue?style=for-the-badge)](https://web.vibemusic.fm)
 [![React 19](https://img.shields.io/badge/React-19-61dafb?style=for-the-badge)](https://react.dev)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-web.vibemusic.fm-9333ea?style=for-the-badge)](https://web.vibemusic.fm)
 
 <br />
 
-![Vibe Music Hero](examples/image.png)
+![Vibe Music Hero](https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=2070&auto=format&fit=crop)
+*Experience the vibe at **[web.vibemusic.fm](https://web.vibemusic.fm)***
 
 <br />
 
@@ -49,7 +51,7 @@ No generic UI frameworks here. Every pixel of the glassmorphic design system is 
 
 ### 1. Clone & Frontend Setup
 ```bash
-git clone https://github.com/hotheadhacker/vibe-music.git
+git clone https://github.com/vibe-music/vibe-music.git
 cd vibe-music
 npm install
 npm run dev
@@ -57,6 +59,16 @@ npm run dev
 
 ### 2. Open the Vibe
 Navigate to `http://localhost:5173` and start importing your first albums from the integrated Archive.org search.
+
+---
+
+## 🗺️ Roadmap: The Nomadic Journey
+The web is just the beginning. We are working on bringing the full high-fidelity experience to all your devices:
+
+- [ ] **Native Android App**: Optimized for mobile performance and background playback (Coming Soon).
+- [ ] **Native iOS/iPadOS App**: A premium Apple ecosystem experience (Coming Soon).
+- [ ] **Desktop Apps**: Dedicated builds for Windows, macOS, and Linux.
+- [ ] **Advanced Vibe Mode**: Real-time visualizers and immersive spatial audio profiles.
 
 ---
 
@@ -71,6 +83,6 @@ Vibe Music is an open-source symphony. We value code quality, aesthetic eyes, an
 ---
 
 <div align="center">
-  <p>Licensed under <b>MIT</b>. Made with 💜 for the music vibes.</p>
+  <p>Licensed under <b>PolyForm Noncommercial 1.0.0</b>. Made with 💜 for the music vibes.</p>
   <b>Stay Vibe.</b>
 </div>
