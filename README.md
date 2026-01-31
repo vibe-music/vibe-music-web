@@ -84,6 +84,6 @@ Vibe Music is an open-source symphony. We value code quality, aesthetic eyes, an
 
 <div align="center">
   <p>Licensed under <b>PolyForm Noncommercial 1.0.0</b>. Made with 💜 for the music vibes.</p>
-  <p>Learn more at <b>[vibemusic.fm](https://vibemusic.fm)</b></p>
+  <p>Learn more at <b><a href="https://vibemusic.fm">vibemusic.fm</a></b></p>
   <b>Stay Vibe.</b>
 </div>
