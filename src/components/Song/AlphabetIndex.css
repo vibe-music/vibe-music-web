@@ -1,0 +1,40 @@
+.alphabet-index {
+    position: fixed;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    user-select: none;
+    padding: var(--spacing-xs);
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-full);
+}
+
+.alphabet-index__letter {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--color-text-secondary);
+    width: 18px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.alphabet-index__letter.active {
+    color: #818cf8;
+    transform: scale(1.4);
+    font-weight: 900;
+}
+
+@media (min-width: 768px) {
+    .alphabet-index {
+        right: calc(50% - 250px + 8px);
+        /* Relative to centered layout if applicable */
+    }
+}

@@ -1,0 +1,77 @@
+.mini-player {
+    position: fixed;
+    bottom: calc(var(--nav-base-height) + var(--safe-area-bottom));
+    left: 0;
+    right: 0;
+    height: var(--player-height);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--glass-border);
+    z-index: var(--z-player);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mini-player__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    transition: width 0.1s linear;
+}
+
+.mini-player__content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    height: 100%;
+}
+
+.mini-player__artwork {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    box-shadow: var(--shadow-sm);
+}
+
+.mini-player__info {
+    flex: 1;
+    min-width: 0;
+    /* Allow text truncation */
+}
+
+.mini-player__title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 2px;
+}
+
+.mini-player__artist {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.mini-player__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.mini-player__play-btn {
+    color: var(--color-primary);
+    padding: var(--spacing-xs);
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+}
+
+.mini-player__play-btn:active {
+    transform: scale(0.95);
+}

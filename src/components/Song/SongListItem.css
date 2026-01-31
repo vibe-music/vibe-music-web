@@ -1,0 +1,154 @@
+.song-list-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.song-list-item:hover {
+    background: var(--color-surface);
+}
+
+.song-list-item.active {
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.song-list-item__artwork {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.song-list-item__artwork img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.song-list-item__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0.5;
+}
+
+.song-list-item__play-state {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.song-list-item__info {
+    flex: 1;
+    min-width: 0;
+}
+
+.song-list-item__title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.song-list-item.active .song-list-item__title {
+    color: #818cf8;
+}
+
+.song-list-item__metadata {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+}
+
+.song-list-item__artist,
+.song-list-item__album {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.song-list-item__dot {
+    opacity: 0.5;
+}
+
+.song-list-item__duration {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Playing Animation */
+.playing-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 12px;
+}
+
+.playing-bars span {
+    width: 2px;
+    background: white;
+    animation: bounce 0.5s ease-in-out infinite alternate;
+}
+
+.playing-bars span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.playing-bars span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+    from {
+        height: 4px;
+    }
+
+    to {
+        height: 12px;
+    }
+}
+
+.song-list-item__more {
+    color: var(--color-text-tertiary);
+    opacity: 0;
+    transition: all var(--transition-base);
+    margin-left: auto;
+}
+
+.song-list-item:hover .song-list-item__more {
+    opacity: 1;
+}
+
+.song-list-item__more:hover {
+    color: var(--color-primary);
+    background: rgba(129, 140, 248, 0.1);
+}
+
+/* On touch devices, keep the more button always visible but subtle */
+@media (hover: none) {
+    .song-list-item__more {
+        opacity: 0.6;
+    }
+}

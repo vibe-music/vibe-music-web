@@ -1,0 +1,831 @@
+.vibe-mode-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg);
+    overflow: hidden;
+}
+
+/* Background Atmosphere */
+.vibe-bg-glow {
+    position: absolute;
+    width: 250%;
+    height: 250%;
+    background: radial-gradient(circle at center, var(--color-primary) 0%, transparent 60%);
+    opacity: 0.2;
+    filter: blur(100px);
+    z-index: 0;
+}
+
+.is-playing .vibe-bg-glow {
+    animation: bassPulse 0.6s ease-out infinite;
+}
+
+@keyframes bassPulse {
+
+    0%,
+    100% {
+        transform: translate(-25%, -25%) scale(1);
+        opacity: 0.15;
+    }
+
+    10% {
+        transform: translate(-25%, -25%) scale(1.1);
+        opacity: 0.3;
+    }
+}
+
+/* Floating Particles */
+.vibe-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.vibe-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.is-playing .vibe-particle {
+    animation: floatParticle 4s infinite linear;
+}
+
+.is-paused .vibe-particle {
+    animation: floatParticle 10s infinite linear;
+    opacity: 0.2;
+}
+
+@keyframes floatParticle {
+    from {
+        transform: translateY(110vh) translateX(0);
+    }
+
+    to {
+        transform: translateY(-10vh) translateX(20px);
+    }
+}
+
+/* Randomize particles */
+.vibe-particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.vibe-particle:nth-child(2) {
+    left: 25%;
+    animation-delay: 0.5s;
+}
+
+.vibe-particle:nth-child(3) {
+    left: 40%;
+    animation-delay: 1.2s;
+}
+
+.vibe-particle:nth-child(4) {
+    left: 55%;
+    animation-delay: 2.1s;
+}
+
+.vibe-particle:nth-child(5) {
+    left: 70%;
+    animation-delay: 0.8s;
+}
+
+.vibe-particle:nth-child(6) {
+    left: 85%;
+    animation-delay: 1.5s;
+}
+
+.vibe-particle:nth-child(7) {
+    left: 15%;
+    animation-delay: 3s;
+}
+
+.vibe-particle:nth-child(8) {
+    left: 45%;
+    animation-delay: 0.2s;
+}
+
+.vibe-particle:nth-child(9) {
+    left: 65%;
+    animation-delay: 1.8s;
+}
+
+.vibe-particle:nth-child(10) {
+    left: 95%;
+    animation-delay: 2.5s;
+}
+
+.vibe-particle:nth-child(11) {
+    left: 30%;
+    animation-delay: 3.5s;
+}
+
+.vibe-particle:nth-child(12) {
+    left: 80%;
+    animation-delay: 0.1s;
+}
+
+/* Character Container */
+.vibe-character-stage {
+    position: relative;
+    width: 320px;
+    /* Increased from 280px */
+    height: 380px;
+    /* Increased from 320px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    margin: var(--spacing-xl) 0 var(--spacing-sm);
+    /* Increased top margin to lower it */
+    flex-shrink: 0;
+}
+
+.character-motion-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character-motion-wrapper.is-blob {
+    transition: transform 3.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Slow-In, Slow-Out organic easing */
+    animation: bioBreathing 8s ease-in-out infinite;
+}
+
+@keyframes bioBreathing {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.character-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+}
+
+/* Base Character Animations */
+.vibe-mode-overlay.is-playing .dancing-part {
+    transform-origin: center bottom;
+}
+
+/* Char 1: Groovy Blob */
+@keyframes blobDance {
+
+    0%,
+    100% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    10% {
+        transform: scale(1.2, 0.8) translateY(10px);
+    }
+
+    /* Squash */
+    40% {
+        transform: scale(0.8, 1.2) translateY(-20px);
+    }
+
+    /* Stretch & Jump */
+}
+
+@keyframes armWave {
+
+    0%,
+    100% {
+        transform: rotate(-20deg) scaleY(1);
+    }
+
+    50% {
+        transform: rotate(40deg) scaleY(0.8);
+    }
+}
+
+@keyframes eyeBlink {
+
+    0%,
+    90%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    95% {
+        transform: scaleY(0.1);
+    }
+}
+
+.is-playing .char-blob-body {
+    animation: blobDance 0.6s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+.is-playing .arm-left {
+    animation: armWave 0.6s ease-in-out infinite;
+    transform-origin: top right;
+}
+
+.is-playing .char-blob-arm.arm-right {
+    animation: armWave 0.6s ease-in-out infinite reverse;
+    transform-origin: top left;
+}
+
+/* Unified Face Logic */
+.char-face {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: 100px 100px;
+}
+
+.is-playing .char-face {
+    /* Face lags slightly behind body for organic "squish" feel */
+    animation: faceFollow 0.6s ease-in-out infinite;
+}
+
+@keyframes faceFollow {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    10% {
+        transform: translateY(4px) scale(0.95);
+    }
+
+    40% {
+        transform: translateY(-8px) scale(1.05);
+    }
+}
+
+/* Mood Expressions - Eyes */
+.char-face.mood-wink .eye-r,
+.char-face.mood-wink .pupil-r {
+    opacity: 0;
+    transform: scaleY(0);
+}
+
+.char-face.mood-wink .wink-eye {
+    display: block;
+    opacity: 1;
+}
+
+.wink-eye {
+    display: none;
+    transition: opacity 0.2s ease;
+}
+
+.char-face.mood-surprised .eye {
+    transform: scale(1.3);
+}
+
+.char-face.mood-surprised .pupil {
+    transform: scale(0.7);
+}
+
+.char-face.mood-happy .eye {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Mood Expressions - Mouth - NO TRANSLATE X TO FIX GLITCH */
+.char-mouth {
+    transition: d 0.3s ease, stroke-width 0.3s ease;
+    transform-origin: center;
+}
+
+.char-face.mood-normal .char-mouth {
+    d: path("M80,115 Q100,140 120,115");
+}
+
+.char-face.mood-surprised .char-mouth {
+    d: path("M90,135 Q100,155 110,135");
+    stroke-width: 8;
+}
+
+.char-face.mood-cool .char-mouth {
+    d: path("M85,125 L115,125");
+    stroke-width: 4;
+}
+
+.char-face.mood-happy .char-mouth {
+    d: path("M75,115 Q100,155 125,115");
+    stroke-width: 7;
+}
+
+.char-face.mood-silly .char-mouth {
+    d: path("M80,115 Q100,140 120,115 L110,140 L90,140 Z");
+    fill: #FF6B6B;
+    stroke-width: 2;
+}
+
+.is-playing .char-eyes {
+    animation: eyeBlink 4s infinite;
+    transform-origin: center;
+}
+
+/* Char 2: Chill Robot */
+@keyframes robotGroove {
+
+    0%,
+    100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(5deg) translateY(-10px);
+    }
+}
+
+@keyframes antennaFlicker {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        filter: blur(2px);
+    }
+
+    10% {
+        opacity: 1;
+        filter: blur(10px);
+    }
+}
+
+@keyframes screenGlow {
+
+    0%,
+    100% {
+        fill: #0f172a;
+    }
+
+    50% {
+        fill: #1e293b;
+    }
+}
+
+.is-playing .char-robot {
+    animation: robotGroove 1.2s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+.is-playing .antenna-light {
+    animation: antennaFlicker 0.3s steps(2) infinite;
+}
+
+.is-playing .robot-screen {
+    animation: screenGlow 1.2s infinite;
+}
+
+.is-playing .robot-arm.arm-left {
+    animation: armSwing 0.6s ease-in-out infinite;
+    transform-origin: top right;
+}
+
+.is-playing .robot-arm.arm-right {
+    animation: armSwing 0.6s ease-in-out infinite reverse;
+    transform-origin: top left;
+}
+
+/* Char 3: PacMan Logic */
+@keyframes pacmanChomp {
+
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(-35deg);
+    }
+}
+
+@keyframes pacmanChompBottom {
+
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(35deg);
+    }
+}
+
+@keyframes pacmanMove {
+    0% {
+        transform: translateX(-120px);
+    }
+
+    100% {
+        transform: translateX(120px);
+    }
+}
+
+@keyframes ghostFlee {
+    0% {
+        transform: translateX(50px);
+        filter: grayscale(0);
+    }
+
+    80% {
+        transform: translateX(120px);
+        filter: grayscale(1) invert(1);
+    }
+
+    81% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes pelletEat {
+
+    0%,
+    40% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    45%,
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.is-playing .pacman-body-group {
+    animation: pacmanMove 3s infinite linear;
+}
+
+.is-playing .pacman-mouth {
+    animation: pacmanChomp 0.3s infinite;
+    transform-origin: 60px 100px;
+}
+
+.is-playing .ghost-body {
+    animation: ghostFlee 3s infinite linear;
+    transform-origin: center;
+}
+
+.is-playing .pellet:nth-child(1) {
+    animation: pelletEat 3s infinite linear;
+    animation-delay: 1.2s;
+}
+
+.is-playing .pellet:nth-child(2) {
+    animation: pelletEat 3s infinite linear;
+    animation-delay: 2.0s;
+}
+
+/* Char 4: Dancing Duo - Improved Bumping */
+@keyframes duoBump {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    40% {
+        transform: translate(40px, -10px) scale(1.1, 0.9);
+    }
+
+    50% {
+        transform: translate(45px, 0) scale(0.9, 1.1);
+    }
+
+    60% {
+        transform: translate(40px, 5px) scale(1.05, 0.95);
+    }
+}
+
+@keyframes duoBumpReverse {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    40% {
+        transform: translate(-40px, -10px) scale(1.1, 0.9);
+    }
+
+    50% {
+        transform: translate(-45px, 0) scale(0.9, 1.1);
+    }
+
+    60% {
+        transform: translate(-40px, 5px) scale(1.05, 0.95);
+    }
+}
+
+@keyframes sparkFlash {
+
+    0%,
+    35%,
+    65%,
+    100% {
+        opacity: 0;
+        transform: scale(0.4) rotate(0);
+    }
+
+    45%,
+    55% {
+        opacity: 1;
+        transform: scale(1.5) rotate(45deg);
+    }
+}
+
+.is-playing .duo-left {
+    animation: duoBump 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transform-origin: center;
+}
+
+.is-playing .duo-right {
+    animation: duoBumpReverse 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transform-origin: center;
+}
+
+.is-playing .duo-spark {
+    animation: sparkFlash 0.8s ease-out infinite;
+    transform-origin: center;
+}
+
+/* Char 5: Rocket Ship - Smoother Fire */
+@keyframes rocketDrift {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-40px) rotate(4deg);
+    }
+}
+
+@keyframes fireOuter {
+
+    0%,
+    100% {
+        transform: scale(1, 1) translate(0, 0);
+        opacity: 0.7;
+    }
+
+    25% {
+        transform: scale(1.1, 1.3) translate(-1px, 2px);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: scale(0.9, 1.5) translate(1px, -1px);
+        opacity: 1;
+    }
+
+    75% {
+        transform: scale(1.05, 1.2) translate(-2px, 0);
+        opacity: 0.8;
+    }
+}
+
+@keyframes fireInner {
+
+    0%,
+    100% {
+        transform: scale(1, 1.2);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(0.8, 1);
+        filter: brightness(1.3);
+    }
+}
+
+.is-playing .rocket-group {
+    animation: rocketDrift 1.5s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.is-playing .fire-outer {
+    animation: fireOuter 0.15s infinite;
+    transform-origin: center top;
+}
+
+.is-playing .fire-mid {
+    animation: fireOuter 0.2s infinite reverse;
+    transform-origin: center top;
+}
+
+.is-playing .fire-inner {
+    animation: fireInner 0.12s infinite;
+    transform-origin: center top;
+}
+
+/* Char 6: Dancing Star */
+@keyframes starTwist {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.1);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes starGlowPulse {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.2;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+.is-playing .char-star {
+    animation: starTwist 2s linear infinite;
+    transform-origin: center;
+}
+
+.is-playing .star-glow {
+    animation: starGlowPulse 0.5s ease-out infinite;
+    transform-origin: center;
+    display: block;
+}
+
+/* Sleeping States */
+.is-paused .character-svg {
+    opacity: 0.6;
+    transition: opacity 1s ease;
+}
+
+@keyframes breathing {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.is-paused .character-svg {
+    animation: breathing 3s ease-in-out infinite;
+}
+
+/* UI Layer */
+.vibe-ui {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    width: 100%;
+    max-width: 400px;
+    flex-shrink: 0;
+}
+
+.vibe-song-info {
+    text-align: center;
+}
+
+.vibe-title-marquee {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 0;
+    background: linear-gradient(to right, #fff, var(--color-text-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    max-width: 300px;
+}
+
+.vibe-song-info p {
+    color: var(--color-text-tertiary);
+    margin: 2px 0 0 0;
+    font-size: 0.85rem;
+}
+
+.vibe-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+.vibe-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.vibe-btn:active {
+    transform: scale(0.9);
+}
+
+.vibe-btn--play {
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.85);
+    /* Dimmed from solid white */
+    color: #000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.vibe-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: auto;
+    padding-bottom: var(--spacing-lg);
+    z-index: 10;
+}
+
+.exit-vibe-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-text-tertiary);
+}
+
+.char-switcher {
+    display: flex;
+    gap: 8px;
+}
+
+.char-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.char-dot.active {
+    background: #fff;
+    transform: scale(1.5);
+}
+
+/* Short height adjustment */
+@media (max-height: 600px) {
+    .vibe-character-stage {
+        height: 180px;
+        width: 220px;
+    }
+
+    .vibe-ui {
+        gap: var(--spacing-sm);
+    }
+
+    .vibe-btn {
+        width: 48px;
+        height: 48px;
+    }
+
+    .vibe-btn--play {
+        width: 56px;
+        height: 56px;
+    }
+}

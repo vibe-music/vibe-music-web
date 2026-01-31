@@ -1,0 +1,93 @@
+/* Specific override for Radio Exit Modal to keep it compact and centered even on mobile */
+/* Redundant overlay/content styles removed as they are now in index.css (.modal-overlay-compact, .modal-content-compact) */
+
+.radio-exit-badge {
+    width: 64px;
+    height: 64px;
+    background: var(--gradient-primary);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -52px auto var(--spacing-lg);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.4);
+    transform: rotate(-3deg);
+    border: 3px solid #1e293b;
+}
+
+.radio-exit-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+    animation: gentle-throb 3s ease-in-out infinite;
+}
+
+@keyframes gentle-throb {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+.radio-exit-header h2 {
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-sm);
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.radio-exit-header p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-xl);
+    padding: 0 var(--spacing-xs);
+}
+
+.radio-exit-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.btn-premium-action {
+    background: var(--color-text-primary);
+    color: var(--color-background);
+    border-radius: 16px;
+    height: 52px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.btn-premium-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.15);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--color-text-tertiary);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    min-height: 40px;
+}
+
+.btn-ghost:hover {
+    color: var(--color-text-secondary);
+}
+
+/* Ensure mobile overrides from index.css are neutralized */
+@media (max-width: 640px) {
+    .radio-exit-content {
+        animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+}

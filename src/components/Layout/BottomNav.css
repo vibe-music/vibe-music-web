@@ -1,0 +1,86 @@
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: calc(var(--nav-base-height) + var(--safe-area-bottom));
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 var(--spacing-md) var(--safe-area-bottom);
+    z-index: calc(var(--z-player) - 1);
+    transition: transform var(--transition-base);
+}
+
+.bottom-nav--with-player {
+    /* No translation needed as players will float above */
+    transform: none;
+}
+
+.bottom-nav__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: var(--spacing-sm);
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    position: relative;
+    transition: all var(--transition-base);
+    -webkit-tap-highlight-color: transparent;
+    border-radius: var(--radius-lg);
+}
+
+.bottom-nav__item:active {
+    background: var(--color-surface);
+    transform: scale(0.95);
+}
+
+.bottom-nav__item.active {
+    color: var(--color-text-primary);
+}
+
+.bottom-nav__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottom-nav__item.active .bottom-nav__icon svg {
+    color: #6366f1;
+}
+
+.bottom-nav__label {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.bottom-nav__indicator {
+    position: absolute;
+    top: 0;
+    width: 32px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 0 0 var(--radius-full) var(--radius-full);
+}
+
+@media (min-width: 768px) {
+    .bottom-nav {
+        max-width: 500px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    }
+
+    .bottom-nav--with-player {
+        transform: translateX(-50%);
+    }
+}

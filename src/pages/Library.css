@@ -1,0 +1,116 @@
+.library {
+    min-height: 100vh;
+}
+
+.library-header {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background: linear-gradient(180deg, var(--color-surface) 0%, transparent 100%);
+}
+
+.library-header {
+    padding: var(--spacing-lg);
+}
+
+.library-header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.library-header h1 {
+    margin: 0;
+    font-size: var(--font-size-2xl);
+}
+
+.library-tabs {
+    display: flex;
+    background: var(--color-surface);
+    padding: 4px;
+    border-radius: var(--radius-full);
+    gap: 4px;
+}
+
+.tab-btn {
+    padding: 6px 16px;
+    border: none;
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.tab-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.library-search {
+    margin-top: var(--spacing-md);
+}
+
+.library-search input {
+    height: 40px;
+    padding: 0 var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+.library-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.library-songs {
+    position: relative;
+    padding-right: 24px;
+    /* Space for index */
+}
+
+.song-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.song-section__header {
+    padding: var(--spacing-xs) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 800;
+    color: #818cf8;
+    background: rgba(129, 140, 248, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    backdrop-filter: blur(10px);
+}
+
+.song-section__items {
+    padding: var(--spacing-xs);
+}
+
+.empty-songs {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    color: var(--color-text-tertiary);
+}
+
+.library-header h1 {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    margin-bottom: var(--spacing-xs);
+}
+
+.library-header p {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.library-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
