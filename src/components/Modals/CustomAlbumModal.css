@@ -1,0 +1,129 @@
+/* CustomAlbumModal specific overrides */
+.custom-album-modal {
+    max-width: 600px;
+}
+
+.custom-album-form {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.form-scroll-area {
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+    flex: 1;
+}
+
+.form-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.form-section h3 {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: var(--spacing-xs);
+}
+
+.form-row {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.tracks-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.tracks-section h3 {
+    margin-bottom: 0;
+    border: none;
+    padding: 0;
+}
+
+.tracks-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.track-form-item {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.track-number {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-surface-elevated);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--color-text-tertiary);
+    margin-top: 10px;
+}
+
+.track-fields {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.track-fields input {
+    margin: 0 !important;
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: var(--color-text-tertiary);
+    padding: var(--spacing-xs);
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all var(--transition-base);
+    margin-top: 5px;
+}
+
+.btn-remove:hover:not(:disabled) {
+    opacity: 1;
+    color: #ef4444;
+}
+
+.btn-remove:disabled {
+    opacity: 0.1;
+    cursor: not-allowed;
+}
+
+
+@media (max-width: 640px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .flex-1,
+    .flex-2 {
+        width: 100%;
+    }
+}

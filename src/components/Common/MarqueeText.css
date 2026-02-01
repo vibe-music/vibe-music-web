@@ -1,0 +1,44 @@
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-container:not(.overflowing) {
+    mask-image: none;
+    -webkit-mask-image: none;
+}
+
+.marquee-content {
+    display: inline-block;
+    padding-left: 0;
+}
+
+.marquee-container.overflowing .marquee-content {
+    animation: marquee linear infinite;
+}
+
+.marquee-spacer {
+    display: inline-block;
+    width: 50px;
+    /* Space between original and duplicated text */
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 25px));
+        /* half content + half spacer */
+    }
+}
+
+/* Pause on hover for better readability */
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+}

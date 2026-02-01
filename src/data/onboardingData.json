@@ -1,0 +1,32 @@
+{
+    "albumSearch": {
+        "query": "Midnight Echoes",
+        "fallbackAlbum": {
+            "title": "Onboarding Vibe",
+            "artist": "Vibe Creator",
+            "year": "2026",
+            "type": "custom",
+            "coverArt": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=200&h=200&auto=format&fit=crop"
+        }
+    },
+    "songDetails": {
+        "title": "Dreamy Beats",
+        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    },
+    "links": {
+        "tutorial": "https://faq.vibemusic.fm/getting-started"
+    },
+    "messages": {
+        "welcome": "Welcome to Vibe Music! Want a quick 1-minute tour to see how to build your library?",
+        "fab": "This is where the magic starts. Click here to add your first album!",
+        "search": "We'll search for 'Daft Punk' albums. Click next and I'll type it for you!",
+        "add": "Found some great albums! Click next and I'll add the first one for you.",
+        "manual": "No results? No problem. You can always add an album manually with your own details.",
+        "albumClick": "Your album is added! Click next and I'll take you inside.",
+        "trackClick": "Select a track to add its audio source.",
+        "songUrl": "Let's make this playable. I'll add a demo MP3 link for you.",
+        "play": "All set! Click the play button to hear the vibe.",
+        "premium": "Enjoying the vibe? Upgrade to VibeSync Pro to handle specific versions and backups. Check out the full tutorial below!",
+        "end": "You're all set! Explore freely or check Settings to run this tour again."
+    }
+}

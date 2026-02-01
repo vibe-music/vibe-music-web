@@ -1,0 +1,84 @@
+/* Driver.js Premium Styling for Vibe Music */
+.driver-popover.driverjs-theme {
+    background: #1e293b !important;
+    /* Solid surface color to prevent blurring */
+    color: var(--color-text-primary) !important;
+    border-radius: var(--radius-xl) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8) !important;
+    padding: 24px !important;
+    max-width: 380px !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-title {
+    color: #6366f1 !important;
+    /* Indigo primary */
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 12px !important;
+    letter-spacing: -0.02em !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-description {
+    color: #cbd5e1 !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    font-weight: 500 !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-footer {
+    margin-top: 24px !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-btn {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: var(--color-text-primary) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: 10px 18px !important;
+    font-size: 0.875rem !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Attention Button: Next/Done */
+.driver-popover.driverjs-theme .driver-popover-next-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4) !important;
+    padding: 10px 24px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    text-shadow: none !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-next-btn:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6) !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-next-btn:active {
+    transform: scale(0.98) !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-close-btn {
+    color: #94a3b8 !important;
+}
+
+.driver-active-element {
+    box-shadow: 0 0 0 4px var(--color-primary), 0 0 40px var(--color-primary) !important;
+    border-radius: var(--radius-lg) !important;
+    transition: all 0.3s ease !important;
+}

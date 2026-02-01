@@ -1,0 +1,149 @@
+import React, { useState, useEffect } from 'react';
+import { updateAlbum } from '../../utils/storage';
+import './CustomAlbumModal.css'; // Reuse form styles
+
+const EditAlbumModal = ({ album, onClose, onAlbumUpdated }) => {
+    const [albumData, setAlbumData] = useState({
+        title: '',
+        artist: '',
+        year: '',
+        description: '',
+        coverArt: ''
+    });
+
+    const [isSaving, setIsSaving] = useState(false);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        if (album) {
+            setAlbumData({
+                title: album.title || '',
+                artist: album.artist || '',
+                year: album.year || '',
+                description: album.description || '',
+                coverArt: album.coverArt || album.coverArtThumbnail || ''
+            });
+        }
+    }, [album]);
+
+    const handleAlbumChange = (e) => {
+        const { name, value } = e.target;
+        setAlbumData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!albumData.title.trim() || !albumData.artist.trim()) {
+            setError('Album Title and Artist are required');
+            return;
+        }
+
+        setIsSaving(true);
+        setError(null);
+
+        try {
+            const updatedAlbum = await updateAlbum(album.id, albumData);
+
+            if (onAlbumUpdated) {
+                onAlbumUpdated(updatedAlbum);
+            }
+            onClose();
+        } catch (err) {
+            console.error('Error updating album:', err);
+            setError('Failed to update album. Please try again.');
+        } finally {
+            setIsSaving(false);
+        }
+    };
+
+    return (
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-content glass animate-slide-up" onClick={(e) => e.stopPropagation()}>
+                <div className="modal-header">
+                    <h2>Edit Album Details</h2>
+                    <button className="btn-icon" onClick={onClose}>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M18 6L6 18M6 6l12 12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+
+                <form onSubmit={handleSubmit} className="custom-album-form">
+                    <div className="modal-body">
+                        <section className="form-section">
+                            <div className="form-group">
+                                <label>Album Title *</label>
+                                <input
+                                    name="title"
+                                    value={albumData.title}
+                                    onChange={handleAlbumChange}
+                                    placeholder="Album Title"
+                                    required
+                                    autoFocus
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Artist *</label>
+                                <input
+                                    name="artist"
+                                    value={albumData.artist}
+                                    onChange={handleAlbumChange}
+                                    placeholder="Artist"
+                                    required
+                                />
+                            </div>
+                            <div className="form-row">
+                                <div className="form-group flex-1">
+                                    <label>Year</label>
+                                    <input
+                                        name="year"
+                                        value={albumData.year}
+                                        onChange={handleAlbumChange}
+                                        placeholder="Year"
+                                    />
+                                </div>
+                                <div className="form-group flex-2">
+                                    <label>Cover Art URL</label>
+                                    <input
+                                        name="coverArt"
+                                        value={albumData.coverArt}
+                                        onChange={handleAlbumChange}
+                                        placeholder="https://example.com/cover.jpg"
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label>Description</label>
+                                <textarea
+                                    name="description"
+                                    value={albumData.description}
+                                    onChange={handleAlbumChange}
+                                    placeholder="Album Description"
+                                    rows="3"
+                                />
+                            </div>
+                        </section>
+                    </div>
+
+                    {error && (
+                        <div className="error-message">
+                            {error}
+                        </div>
+                    )}
+
+                    <div className="modal-actions">
+                        <button type="button" className="btn btn-secondary" onClick={onClose}>
+                            Cancel
+                        </button>
+                        <button type="submit" className="btn btn-primary" disabled={isSaving}>
+                            {isSaving ? 'Updating...' : 'Save Changes'}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    );
+};
+
+export default EditAlbumModal;
